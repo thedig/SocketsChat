@@ -1,0 +1,10 @@
+## generic files to ignore
+
+*~
+*.lock
+*.DS_store
+*.swp
+*.out
+
+my_chat_app/node_modules/
+node_modules/
