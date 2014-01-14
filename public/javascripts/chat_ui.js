@@ -18,24 +18,31 @@ $(function(){
 
   socket.on("new_message", function(data){
     console.log(data);
-    // chat_room_div.append("<br>")
+    chat_room_div.append(data['nickname'] + ": ");
     chat_room_div.append(data['message']);
     chat_room_div.append('<br>');
   });
 
   socket.on("chat_message", function(data){
     console.log(data);
-    // chat_room_div.append("<br>")
     chat_room_div.append(data['message']);
     chat_room_div.append('<br>');
   });
 
-  socket.on("announce_user", function(data){
+  socket.on("announcement", function(data){
     console.log(data);
-    // chat_room_div.append("<br>")
     chat_room_div.append(data['message']);
     chat_room_div.append('<br>');
   });
+
+  socket.on('nicknameChangeResult', function(data){
+    console.log(data);
+    if (data['success']) {
+    } else {
+      chat_room_div.append("<span id='nickname_error'>" + data['message'] + "</span>");
+      chat_room_div.append('<br>');
+    }
+  })
 
 });
 

@@ -6,7 +6,13 @@
   };
 
   Chat.prototype.sendMessage = function (message) {
-    socket.emit("user_submit", message);
+    var res = message.match(/\/nick/);
+
+    if (res){
+      socket.emit("nicknameChangeRequest", message.slice(6));
+    } else {
+      socket.emit("user_submit", message);
+    }
   };
 
 })(this);
