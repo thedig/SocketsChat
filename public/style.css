@@ -1,0 +1,16 @@
+#nickname_error {
+  color: red;
+}
+
+.chat_group {
+  display: inline-block;
+}
+
+#chat_input {
+  width: 450px;
+}
+
+#user_list {
+  width: 150px;
+  vertical-align: text-top;
+}
